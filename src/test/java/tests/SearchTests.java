@@ -54,7 +54,7 @@ class SearchTests extends TestBase {
 
     @Test
     @DisplayName("Successful search in wikipedia android app")
-    void successfulSearchWithoutSteps() {
+    void successfulSearchWithSteps() {
         step("Open application", ()-> open());
 
         step("Type search", ()-> {
