@@ -2,7 +2,7 @@
 package helpers;
 
 import com.codeborne.selenide.Configuration;
-import drivers.CustomMobileDriver;
+import drivers.BrowserstackMobileDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
@@ -11,7 +11,7 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 public class DriverHelper {
 
     public static void configureSelenide() {
-        Configuration.browser = CustomMobileDriver.class.getName();
+        Configuration.browser = BrowserstackMobileDriver.class.getName();
         Configuration.startMaximized = false;
         Configuration.browserSize = null;
         Configuration.timeout = 10000;
