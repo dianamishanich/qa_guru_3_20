@@ -25,7 +25,7 @@ public class LocalTests {
         open();
         back();
 
-        $(AccessibilityId("Поиск по Википедии")).click();
+        $(AccessibilityId("Search Wikipedia")).click();
         $(MobileBy.id("org.wikipedia.alpha:id/search_src_text")).setValue("Selenium");
         $$(byClassName("android.widget.TextView")).shouldHave(sizeGreaterThan(0));
     }
