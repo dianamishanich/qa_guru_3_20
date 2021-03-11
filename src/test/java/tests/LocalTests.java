@@ -23,12 +23,10 @@ public class LocalTests {
     @Test
     void searchTest() {
         open();
-//        Continue
-//        org.wikipedia.alpha:id/fragment_onboarding_done_button
         back();
-        $(AccessibilityId("Search Wikipedia")).click();
-        $(MobileBy.id("org.wikipedia.alpha:id/search_src_text")).setValue("BrowserStack");
-        $$(byClassName("android.widget.TextView")).shouldHave(sizeGreaterThan(0));
 
+        $(AccessibilityId("Поиск по Википедии")).click();
+        $(MobileBy.id("org.wikipedia.alpha:id/search_src_text")).setValue("Selenium");
+        $$(byClassName("android.widget.TextView")).shouldHave(sizeGreaterThan(0));
     }
 }
