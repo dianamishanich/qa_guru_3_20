@@ -9,8 +9,6 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 public class LocalMobileDriver implements WebDriverProvider {
 
     @Override
@@ -28,13 +26,6 @@ public class LocalMobileDriver implements WebDriverProvider {
         return new AndroidDriver(getDriverUrl(), capabilities);
     }
 
-    private String getAbsolutePath(String filePath) {
-        File file = new File(filePath);
-        assertTrue(file.exists(), filePath + " not found");
-
-        return file.getAbsolutePath();
-    }
-
     private URL apkUrl() {
         try {
             return new URL("https://github.com/wikimedia/apps-android-wikipedia/releases/download/untagged-4569c2d6deed0da37be2/app-alpha-universal-release.apk");
@@ -46,7 +37,7 @@ public class LocalMobileDriver implements WebDriverProvider {
 
     private URL getDriverUrl() {
         try {
-            return new URL("http://136.243.89.21:4444/wd/hub");
+            return new URL("https://user1:1234@selenoid.autotests.cloud:4444/wd/hub");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
