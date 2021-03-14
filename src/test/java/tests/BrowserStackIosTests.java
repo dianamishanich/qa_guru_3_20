@@ -1,7 +1,6 @@
 package tests;
 
 import java.net.URL;
-import java.util.List;
 import java.net.MalformedURLException;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -14,12 +13,16 @@ import io.appium.java_client.ios.IOSElement;
 
 public class BrowserStackIosTests {
 
+    public static final String USERNAME = "dianamishanich1";
+    public static final String AUTOMATE_KEY = "MpJ4BRmmACV3orZHQjRM";
+    public static final String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
+
     public static void main(String[] args) throws MalformedURLException, InterruptedException {
         DesiredCapabilities caps = new DesiredCapabilities();
 
         // Set your access credentials
-        caps.setCapability("browserstack.user", "qaguru3");
-        caps.setCapability("browserstack.key", "PDQAwqS6GqzeNLqsj92r");
+        caps.setCapability("browserstack.user", USERNAME);
+        caps.setCapability("browserstack.key", AUTOMATE_KEY);
 
         // Set URL of the application under test
         caps.setCapability("app", "bs://444bd0308813ae0dc236f8cd461c02d3afa7901d");

@@ -14,12 +14,16 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class BrowserStackAndroidTests {
 
+    public static final String USERNAME = "dianamishanich1";
+    public static final String AUTOMATE_KEY = "MpJ4BRmmACV3orZHQjRM";
+    public static final String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
+
     public static void main(String args[]) throws MalformedURLException, InterruptedException {
         DesiredCapabilities caps = new DesiredCapabilities();
 
         // Set your access credentials
-        caps.setCapability("browserstack.user", "qaguru3");
-        caps.setCapability("browserstack.key", "PDQAwqS6GqzeNLqsj92r");
+        caps.setCapability("browserstack.user", USERNAME);
+        caps.setCapability("browserstack.key", AUTOMATE_KEY);
 
         // Set URL of the application under test
         caps.setCapability("app", "bs://c700ce60cf13ae8ed97705a55b8e022f13c5827c");
@@ -41,16 +45,16 @@ public class BrowserStackAndroidTests {
         // Test case for the BrowserStack sample Android app.
         // If you have uploaded your app, update the test case here.
         AndroidElement searchElement = (AndroidElement) new WebDriverWait(driver, 30).until(
-            ExpectedConditions.elementToBeClickable(
-                MobileBy.AccessibilityId("Search Wikipedia")));
+                ExpectedConditions.elementToBeClickable(
+                        MobileBy.AccessibilityId("Search Wikipedia")));
         searchElement.click();
         AndroidElement insertTextElement = (AndroidElement) new WebDriverWait(driver, 30).until(
-              ExpectedConditions.elementToBeClickable(
-                  MobileBy.id("org.wikipedia.alpha:id/search_src_text")));
+                ExpectedConditions.elementToBeClickable(
+                        MobileBy.id("org.wikipedia.alpha:id/search_src_text")));
         insertTextElement.sendKeys("BrowserStack");
         Thread.sleep(5000);
         List<AndroidElement> allProductsName = driver.findElementsByClassName(
-            "android.widget.TextView");
+                "android.widget.TextView");
         assert(allProductsName.size() > 0);
 
         // Invoke driver.quit() after the test is done to indicate that the test is completed.
